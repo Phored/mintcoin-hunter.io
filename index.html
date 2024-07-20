@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>Майнинг-игра</title>
+  <title>Майнинг-игра1</title>
   <style>
     body {
       background: linear-gradient(to bottom, #000000, #333333, #666666, #999999, #cccccc);
@@ -89,7 +89,14 @@
       </button>
     </div>
   <script src="https://telegram.org/js/telegram-web-app.js">
-    let tg = window.Telegram;
+  
+  </script>
+  <script>
+    
+    document.getElementById('shop').addEventListener('click', function() {
+            window.location.href = 'shop.html'; 
+          });
+    et tg = window.Telegram;
     
     if(tg != undefined){
       if (tg.WebApp!= undefined && tg.WebApp.initData !=undefined){
@@ -99,12 +106,6 @@
       tg.WebApp.expand();
       }
     }
-  </script>
-  <script>
-    
-    document.getElementById('shop').addEventListener('click', function() {
-            window.location.href = 'shop.html'; 
-          });
   
   </script>
 </body>
