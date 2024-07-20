@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Майнинг-игра1</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #000000, #333333, #666666, #999999, #cccccc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      width: 100vw;
+      margin: 0;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-around;
+      width: 300px;
+      position: fixed; 
+      bottom: 20px; 
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    button {
+      background-color: #4CAF50; 
+      border: 2px solid #fff;
+      color: white;
+      padding: 15px 32px;
+      text-align: down;
+      text-decoration: none;
+      display: flex; /* Делаем кнопку блоком Flexbox */
+      flex-direction: column; /* Выравниваем элементы по вертикали */
+      align-items: center; /* Центрируем по горизонтали */
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #3e8e41; 
+    }
+
+    .icon { /* Класс для иконки */
+      width: 20px;
+      height: 20px;
+      margin-bottom: 5px; 
+      background-image: url('https://cdn-icons-png.flaticon.com/512/158/158776.png'); /* Замените на URL вашей иконки */
+      background-size: contain;
+      background-repeat: no-repeat;   
+    }
+    .icon_store { /* Класс для иконки */
+      width: 20px;
+      height: 20px;
+      margin-bottom: 5px; 
+      background-image: url('https://cdn-icons-png.flaticon.com/512/126/126122.png  '); /* Замените на URL вашей иконки */
+      background-size: contain;
+      background-repeat: no-repeat;   
+    }
+
+    .icon_led { /* Класс для иконки */
+      width: 20px;
+      height: 20px;
+      margin-bottom: 5px; 
+      background-image: url('https://cdn.icon-icons.com/icons2/1709/PNG/512/group_112473.png'); 
+      background-size: contain;
+      background-repeat: no-repeat;   
+    }
+
+
+  </style>
+</head>
+<body>
+    <div class="button-container">
+      <button id="mining">
+        <span class="icon"></span>
+        
+      </button>
+      <button id="shop">
+        <span class="icon_store"></span>
+      
+      </button>
+      <button id="profile">
+        <span class="icon_led"></span>
+        
+      </button>
+    </div>
+<script src="https://telegram.org/js/telegram-web-app.js">
+  let tg = window.Telegram;
+  if(tg != undefined){
+    if (tg.WebApp!= undefined && tg.WebApp.initData !=undefined){
+    
+    let safe = tg.WebApp.initData;
+
+    tg.WebApp.expand();
+    }
+  }
+</script>
+
+    
+<script>
+    
+    document.getElementById('shop').addEventListener('click', function() {
+            window.location.href = 'shop.html'; 
+          });
+
+   
+
+
+</script>
+ 
+</body>
+ 
+</html>
