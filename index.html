@@ -26,7 +26,7 @@
 
     button {
       background-color: transparent; 
-      border: none;
+      border: black ;
       color: black;
       padding: 15px 32px;
       text-align: down;
@@ -46,7 +46,7 @@
       width: 20px;
       height: 20px;
       margin-bottom: 5px; 
-      background-image: url('https://cdn-icons-png.flaticon.com/512/158/158776.png'); /* Замените на URL вашей иконки */
+      background-image: url('https://cdn-icons-png.flaticon.com/512/2736/2736430.png'); /* Замените на URL вашей иконки */
       background-size: contain;
       background-repeat: no-repeat;   
     }
@@ -71,6 +71,7 @@
       color: white;
       font-size: 24px;
       margin-bottom: 30px;
+      z-index: 0;
     }
 
     .info-container {
@@ -84,22 +85,12 @@
       font-size: 16px;
       z-index: 1;
     }
-    .asic {
-      position: fixed;
-      align-items: center;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80vw; /* Занимает 80% ширины экрана */
-      max-width: 600px; /* Максимальная ширина */
-      z-index: 0; /* Отображается под информационным окошком */
-    }
+   
 
 
   </style>
 </head>
 <body>
-  <img id="asic" src="https://mining-center.net/wp-content/uploads/2018/08/photo_2018-08-15_11-38-26.png">
   
 
   <div class="info-container">
@@ -121,7 +112,7 @@
       </button>
       <button id="profile">
         <span class="icon_led"></span>
-        Leaderboard
+        Leaders
       </button>
     </div>    
 <script>
@@ -133,13 +124,13 @@
   document.getElementById('total').textContent = totalCoins;
   document.getElementById('hashrate').textContent = hashrate + " MH/s";
   document.getElementById('asic-count').textContent = asicCount;
-  document.querySelector('.balance').textContent = `Баланс: ${balance} монет`;
+  document.querySelector('.balance').textContent = ` ${balance} `;
 
   setInterval(function() {
       balance += hashrate * 0.001; // Зарабатываем монеты в зависимости от хэшрэйта
       totalCoins += hashrate * 0.001; // Увеличиваем общее количество монет
-      document.getElementById('total').textContent = totalCoins.toFixed(2); // Округляем до 2 знаков после запятой
-      document.querySelector('.balance').textContent = `Баланс: ${balance.toFixed(2)} монет`; 
+      document.getElementById('total').textContent = totalCoins.toFixed(0); // Округляем до 2 знаков после запятой
+      document.querySelector('.balance').textContent = `${balance.toFixed(0)}`; 
     }, 3000);
   
   /*const shopButton = document.getElementById('shop')
