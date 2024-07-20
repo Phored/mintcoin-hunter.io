@@ -15,10 +15,13 @@
     }
 
     .button-container {
+      
       display: flex;
+      text-align: center;
       justify-content: space-around;
-      width: 300px;
+      width: 500px;
       position: fixed; 
+      align-items: center;
       bottom: 20px; 
       left: 50%;
       transform: translateX(-50%);
@@ -28,8 +31,9 @@
       background-color: transparent; 
       border: black ;
       color: black;
+      flex-direction: column;
       padding: 15px 32px;
-      text-align: down;
+      text-align: center;
       text-decoration: none;
       display: flex; /* Делаем кнопку блоком Flexbox */
       flex-direction: column; /* Выравниваем элементы по вертикали */
@@ -67,6 +71,15 @@
       background-size: contain;
       background-repeat: no-repeat;   
     }
+    .icon_wallet { /* Класс для иконки */
+      width: 20px;
+      height: 20px;
+      margin-bottom: 5px; 
+      background-image: url('https://cdn-icons-png.flaticon.com/512/83/83203.png'); 
+      background-size: contain;
+      background-repeat: no-repeat;   
+    }
+    
     .balance {
       color: white;
       font-size: 24px;
@@ -110,10 +123,16 @@
         <span class="icon_store"></span>
         Store
       </button>
-      <button id="profile">
+      <button id="leaders">
         <span class="icon_led"></span>
         Leaders
       </button>
+      <button id="wallet">
+        <span class="icon_wallet"></span>
+        Wallet
+      </button>
+      
+        
     </div>    
 <script>
   let balance = 0; // Начальный баланс
