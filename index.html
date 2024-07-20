@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Майнинг-игра</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #000000, #333333, #666666, #999999, #cccccc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      width: 100vw;
+      margin: 0;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-around;
+      width: 300px;
+      position: fixed; 
+      bottom: 20px; 
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    button {
+      background-color: transparent; 
+      border: none;
+      color: black;
+      padding: 15px 32px;
+      text-align: down;
+      text-decoration: none;
+      display: flex; /* Делаем кнопку блоком Flexbox */
+      flex-direction: column; /* Выравниваем элементы по вертикали */
+      align-items: center; /* Центрируем по горизонтали */
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+
+
+    .icon { /* Класс для иконки */
+      width: 20px;
+      height: 20px;
+      margin-bottom: 5px; 
+      background-image: url('https://cdn-icons-png.flaticon.com/512/158/158776.png'); /* Замените на URL вашей иконки */
+      background-size: contain;
+      background-repeat: no-repeat;   
+    }
+    .icon_store { /* Класс для иконки */
+      width: 20px;
+      height: 20px;
+      margin-bottom: 5px; 
+      background-image: url('https://cdn-icons-png.flaticon.com/512/126/126122.png  '); /* Замените на URL вашей иконки */
+      background-size: contain;
+      background-repeat: no-repeat;   
+    }
+
+    .icon_led { /* Класс для иконки */
+      width: 20px;
+      height: 20px;
+      margin-bottom: 5px; 
+      background-image: url('https://cdn.icon-icons.com/icons2/1709/PNG/512/group_112473.png'); 
+      background-size: contain;
+      background-repeat: no-repeat;   
+    }
+    .balance {
+      color: white;
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+
+    .info-container {
+      background-color: black;
+      position: absolute;
+      top: 10px;
+      left: none;
+      padding: 15px;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      z-index: 1;
+    }
+    .asic {
+      position: fixed;
+      align-items: center;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80vw; /* Занимает 80% ширины экрана */
+      max-width: 600px; /* Максимальная ширина */
+      z-index: 0; /* Отображается под информационным окошком */
+    }
+
+
+  </style>
+</head>
+<body>
+  <img id="asic" src="https://mining-center.net/wp-content/uploads/2018/08/photo_2018-08-15_11-38-26.png">
+  
+
+  <div class="info-container">
+    <div>Total: <span id="total">0</span> монет</div>
+    <div>Хэшрэйт: <span id="hashrate">100</span> MH/s</div>
+    <div>Количество асиков: <span id="asic-count">1</span></div>
+  </div>
+  
+  <div class="balance">0</div>
+    <div class="button-container">
+      <button id="mining">
+        <span class="icon"></span>
+        Home
+      
+      </button>
+      <button id="shop">
+        <span class="icon_store"></span>
+        Store
+      </button>
+      <button id="profile">
+        <span class="icon_led"></span>
+        Leaderboard
+      </button>
+    </div>    
+<script>
+  let balance = 0; // Начальный баланс
+  let totalCoins = 0; // Общее количество монет
+  let hashrate = 1000; // Скорость майнинга
+  let asicCount = 3;
+
+  document.getElementById('total').textContent = totalCoins;
+  document.getElementById('hashrate').textContent = hashrate + " MH/s";
+  document.getElementById('asic-count').textContent = asicCount;
+  document.querySelector('.balance').textContent = `Баланс: ${balance} монет`;
+
+  setInterval(function() {
+      balance += hashrate * 0.001; // Зарабатываем монеты в зависимости от хэшрэйта
+      totalCoins += hashrate * 0.001; // Увеличиваем общее количество монет
+      document.getElementById('total').textContent = totalCoins.toFixed(2); // Округляем до 2 знаков после запятой
+      document.querySelector('.balance').textContent = `Баланс: ${balance.toFixed(2)} монет`; 
+    }, 3000);
+  
+  /*const shopButton = document.getElementById('shop')
+
+  shopButton.addEventListener('click',function(){
+    window.location.href = 'shop.html'
+  });
+*/
+document.getElementById('shop')
+  .addEventListener('click', () => window.open('shop.html'));
+
+   
+
+
+</script>
+ 
+</body>
+ 
+</html>
