@@ -18,7 +18,7 @@
       
       display: flex;
       text-align: center;
-      justify-content: space-around;
+      justify-content: center;
       width: 450px;
       position: fixed; 
       align-items: center;
@@ -38,7 +38,7 @@
       display: flex; /* Делаем кнопку блоком Flexbox */
       flex-direction: column; /* Выравниваем элементы по вертикали */
       align-items: center; /* Центрируем по горизонтали */
-      font-size: 16px;
+      font-size: Unformital;
       margin: 4px 2px;
       cursor: pointer;
       border-radius: 5px;
@@ -88,6 +88,8 @@
     }
 
     .info-container {
+      width: 300px;
+      height: none;
       background-color: black;
       position: absolute;
       top: 10px;
@@ -98,7 +100,21 @@
       font-size: 16px;
       z-index: 1;
     }
-   
+
+    .info-container-pb {
+      width: 300px;
+      height: none;
+      background-color: #000000;
+      position: absolute;
+      top: 10px;
+      left: none;
+      padding: 15px;
+      border-radius: 10px;
+      color: beige;
+      font-size: 17px;
+      z-index: 2;
+    }
+
 
 
   </style>
@@ -106,26 +122,24 @@
 <body>
   
 
+  </div>
   <div class="info-container">
-    <div>Total: <span id="total">0</span> монет</div>
-    <div>Хэшрэйт: <span id="hashrate">100</span> MH/s</div>
+    <div>Total: <span id="total">0</span> HTC</div>
+    <div>Хэшрэйт: <span id="hashrate">10000</span> MH/s</div>
     <div>Количество асиков: <span id="asic-count">1</span></div>
   </div>
+
+
   
   <div class="balance">0</div>
     <div class="button-container">
       <button id="mining">
         <span class="icon"></span>
         Home
-      
       </button>
       <button id="shop">
         <span class="icon_store"></span>
         Store
-      </button>
-      <button id="leaders">
-        <span class="icon_led"></span>
-        Leaders
       </button>
       <button id="wallet">
         <span class="icon_wallet"></span>
@@ -151,6 +165,10 @@
       document.getElementById('total').textContent = totalCoins.toFixed(0); // Округляем до 2 знаков после запятой
       document.querySelector('.balance').textContent = `${balance.toFixed(0)}`; 
     }, 3000);
+
+  
+  
+
   
   /*const shopButton = document.getElementById('shop')
 
@@ -160,6 +178,11 @@
 */
 document.getElementById('shop')
   .addEventListener('click', () => window.open('shop.html'));
+
+const myButton = document.getElementById('wallet');
+      myButton.onclick = function() {
+        window.location.href = 'https://t.me/qwefetra_bot/Art';
+      };
 
    
 
